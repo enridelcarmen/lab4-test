@@ -21,3 +21,20 @@ jobs:
         run: npm clean-install
       - name: Run linter
         run: npm run lint
+  
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v3
+      with: 
+        node-version: "18"
+    - name: Install dependencies
+      run: npm clean-install
+    - name: Run unit tests 
+      run: npm run test-unit
+    - if: sucesss () || failure ()
+      uses: actions/checkout@v3
+      with:
+        name: unit-test
+
+  
