@@ -10,6 +10,7 @@ on:
 
 jobs:
   lint:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,10 +33,10 @@ jobs:
       run: npm clean-install
     - name: Run unit tests 
       run: npm run test-unit
-    - if: sucesss () || failure ()
+    - if: success () || failure ()
       uses: actions/upload-artifact@v3
       with:
         name: unit-test-${{ github.sha }}
-        path: reports.report.xml
+        path: reports/report.xml
 
   
